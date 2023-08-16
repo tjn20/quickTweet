@@ -1,5 +1,13 @@
 # Quick Tweet
 A comprehensive, full-stack application for quick and efficient real-time messaging and sharing short posts.
+![image](https://github.com/tjn20/quickTweet/assets/142109365/a72c1af0-b5d9-4c50-b561-6fb73ebcc0f3)
+
+![image](https://github.com/tjn20/quickTweet/assets/142109365/74036362-644b-4dde-a066-179bf46df35a)
+
+![image](https://github.com/tjn20/quickTweet/assets/142109365/b0370ce3-6fda-4eaf-89d9-7ea9341734a3)
+
+![image](https://github.com/tjn20/quickTweet/assets/142109365/68aa571f-8772-4c1f-a29c-774a96968b39)
+
 
 # Features
   * # Secure Authentication and Verification 
