@@ -19,7 +19,7 @@ A comprehensive, full-stack application for quick and efficient real-time messag
 * Timeline: Users can view their timeline, which includes tweets from users they follow.
 * Liked Tweets: Users can see liked tweets of the searched profile.
      * # Search Functionality
- *User Search: Users can search for other users by username either to start a chat or open their profile.
+ * User Search: Users can search for other users by username either to start a chat or open their profile.
  
  # Technologies Used
  * # FrontedEnd
