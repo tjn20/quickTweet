@@ -1,4 +1,4 @@
-# quickTweet
+# Quick Tweet
 A comprehensive, full-stack application for quick and efficient real-time messaging and sharing short posts.
 
 # Features
@@ -20,8 +20,18 @@ A comprehensive, full-stack application for quick and efficient real-time messag
 * Liked Tweets: Users can see liked tweets of the searched profile.
      * # Search Functionality
  *User Search: Users can search for other users by username either to start a chat or open their profile.
- # Credits
  
+ # Technologies Used
+ * # FrontedEnd
+ * HTML, CSS ,JavaScript(Vanilla)
+  * # BackEnd
+ * PHP, MYSQL (PhPMyAdmin)
+
+   
+ # Credits
+ Quick Tweet has been independently developed by me @tjn20
+
+
 
 
 
