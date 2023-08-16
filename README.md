@@ -1,5 +1,6 @@
 # Quick Tweet
 A comprehensive, full-stack application for quick and efficient real-time messaging and sharing short posts.
+
 ![image](https://github.com/tjn20/quickTweet/assets/142109365/a72c1af0-b5d9-4c50-b561-6fb73ebcc0f3)
 
 ![image](https://github.com/tjn20/quickTweet/assets/142109365/74036362-644b-4dde-a066-179bf46df35a)
