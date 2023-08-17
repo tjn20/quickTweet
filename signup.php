@@ -19,7 +19,7 @@
             <form action="" autocomplete="off" enctype="multipart/form-data">
                 <div class="field">
                     <label>USERNAME</label>
-                    <input type="text"   name="username" placeholder="USERNAME">
+                    <input type="text"   name="username" placeholder="USERNAME" onkeydown="return /[a-z]/i.test(event.key)">
                     <span></span>
                 </div>
                 <div class="field">
