@@ -4,6 +4,7 @@ if(!isset($_SESSION['unique_id'])){
     header("Location: login");
 }
 
+include_once "php/database.php";
 
 
 ?>
@@ -28,6 +29,12 @@ if(!isset($_SESSION['unique_id'])){
         </header>
     <div class="twitter-search">
         <div class="field field-search">
+                <?php
+            $sql=mysqli_query($conn,"SELECT * FROM users where unique_id={$_SESSION['unique_id']}");
+            $row=mysqli_fetch_assoc($sql);
+
+            ?>
+            <img src="php/images/<?php echo $row['img']?>" alt="">
             <img src="php/images/1689798034user2.jpg" alt="">
             <input type="text" class="searchinput" placeholder="&#xF002; Search Twitter" style="font-family:Poppins, FontAwesome">
              <button class="cancelSearch">Cancel</button> 
