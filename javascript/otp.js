@@ -24,7 +24,10 @@ submitBtn.addEventListener('click',()=>{
                 if(response==="successfull"){
                     errorBox.classList.add('sent');
                     setTimeout(()=>{
-                        if(document.referrer==="forgotpassword"){
+                             var referrerURL = document.referrer;
+var segments = referrerURL.split('/');
+var lastParameter = segments[segments.length - 1];
+                        if(lastParameter==="forgotpassword" || lastParameter==="forgotpassword.php"){
 location.href="newpassword";
                         }
                         else
