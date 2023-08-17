@@ -1,6 +1,6 @@
 Options +MultiViews
 RewriteEngine On
-RewriteBase /php%20course-projects/Semi-Twitter%20App/
+RewriteBase YOUR_ROOT_PATH
 
 
 
