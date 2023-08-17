@@ -24,11 +24,11 @@ submitBtn.addEventListener('click',()=>{
                 if(response==="successfull"){
                     errorBox.classList.add('sent');
                     setTimeout(()=>{
-                        if(document.referrer==="http://localhost/php%20course-projects/Semi-Twitter%20App/forgotpassword"){
+                        if(document.referrer==="forgotpassword"){
 location.href="newpassword";
                         }
                         else
-                        location.href="login";
+                        location.href="home";
                     },2000);
                 }
              
