@@ -47,7 +47,7 @@ if(!empty($username) && !empty($email) &&  !empty($password)){
                          $row= mysqli_fetch_assoc($sql3);
                        $email_subject="Your verification code";
                        $email_message="Your verification code is {$code}";
-                       $sender = "From: tjndocsell@gmail.com";
+                       $sender = "From: YOUR_EMAIL";
                        if(mail($email,$email_subject,$email_message,$sender)){
                         $messageInfo.="Your verification code is sent to your email - {$email}";
                         $_SESSION['unique_id']=$row['unique_id']; 
@@ -94,23 +94,6 @@ echo "Please fill all fields";
 }
 
 
-/* function sendEmail($code,$email,$unique_id){
-    $email_subject="Your verification code";
-    $email_message="Your verification code is {$code}";
-    $sender = "From: tjndocsell@gmail.com";
-    $messageInfo="";
-    if(mail($email,$email_subject,$email_message,$sender)){
-     $messageInfo.="Your verification code is sent to your email - {$email}";
-     $_SESSION['unique_id']=$unique_id;//using this session we used user unique id in other php file
-     $_SESSION['info'] = $messageInfo;
-     echo "successfull";
-    }
-    else{
-        echo "failed sending code";
-
-       }
-
-} */
 
 
 ?>
