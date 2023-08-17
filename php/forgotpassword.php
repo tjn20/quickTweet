@@ -11,7 +11,7 @@ if(!empty($email)){
     $sql=mysqli_query($conn,"UPDATE users set verifCode={$code} where email='{$email}'");
         $email_subject="Your verification code";
         $email_message="Your verification code is {$code} to reset your password";
-        $sender = "From: tjndocsell@gmail.com";
+        $sender = "From: YOUR_EMAIL";
         $messageInfo="";
         if(mail($email,$email_subject,$email_message,$sender)){
          $messageInfo.="Your verification code is sent to your email - {$email}";
