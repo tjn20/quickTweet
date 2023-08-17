@@ -1,0 +1,1627 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+text-decoration: none;
+}
+
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+    min-height: 100vh;
+background: #f7f7f7;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.wrap{
+    background: white;
+    width: 450px;
+    padding: 5px 0 20px 0;
+    border-radius: 16px;
+box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),0 32px 64px -48px rgba(0,0,0,0.5);
+
+}
+
+
+.wrap .form{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.wrap header{
+  border: none;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-inline: auto;
+    padding-bottom: 5px;
+    margin-inline: 20px;
+    font-size: 15px;
+}
+
+.wrap header h2{
+    color: rgb(59, 190, 242);
+    font-weight: 700;
+}
+
+.wrap header img{
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.form .error-message{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-inline: 20px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+   padding: 8px 10px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-radius: 5px;
+font-size: 17px;
+}
+
+.form .error-message.success{
+  background-color: #21adff;
+  color: #efefef;
+}
+
+
+.form form{
+    display: flex;
+    flex-direction: column;
+   padding-inline: 20px;
+}
+
+.form .field{
+   display: flex;
+   flex-direction: column;
+   margin-top: 10px;
+   position: relative;
+}
+
+.form .field label{
+    margin-bottom: 5px;
+}
+
+.form .field input{
+    width: 100%;
+    height: 38px;
+    outline: none;
+border: 1px solid rgb(190, 192, 192);
+/* background: #cbc9c9; */
+background-color: white;
+padding-left: 10px;
+font-size: 17px;
+}
+
+.form .field input::placeholder{
+    padding-left: 10px;
+    font-size: 15px;
+    color: #a3a3a3;
+}
+
+.form .field span{
+    height: 2px;
+    left: 50%;
+    width: 0;
+    top: 100%;
+    position: absolute;
+    transform: translateX(-50%);
+    transition: .3s;
+    background-color: rgb(59, 190, 242); 
+}
+
+.form .field.pass span{
+  top: 73%;
+}
+
+.form .field input:focus ~ span{
+    width: 100%;
+}
+
+
+
+
+.form .field .image{
+    background-color: white;
+    font-size: 15px;
+border: none;
+}
+
+.form .field.submit input{
+    font-weight: 700;
+    color: white;
+    font-size: 16px;
+    background-color: rgb(59, 190, 242);
+    border-radius: 5px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.form .goTo{
+    padding-inline: 20px;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+
+.form .goTo a{
+    margin-left: 10px;
+    color: rgb(59, 190, 242);
+    font-weight: 700;
+
+}
+
+.form  .forgot{
+color: #21adff;
+  font-size: 13px;
+  margin-top: 5px;
+  font-weight: 700;
+
+}
+
+
+/*
+*LOGIN
+*/
+
+.loader{
+    width: 450px;
+    height: 250px;
+     margin-top: 3rem; 
+    background:transparent;
+    position: absolute;
+    z-index: 10;
+backdrop-filter: blur(10px);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.loader .loader-cont{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+
+}
+
+ .loader .circling{
+    width: 100px;
+    height: 100px;
+    border: 5px solid rgb(190, 192, 192);
+    border-left-color:rgb(59, 190, 242) ;
+    border-radius: 50%;
+    animation: moveLoader infinite forwards;
+    animation-duration: 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: absolute;
+} 
+
+
+.loading {
+    display: none;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+  }
+  
+
+  
+
+
+  .loading svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .circle {
+    transform: rotate(-90deg);
+    transform-origin: center;
+    stroke-dasharray: 380;
+    stroke-dashoffset: 380;
+    animation: circle_4 2s ease-in-out forwards;
+  }
+  
+  .check {
+    stroke-dasharray: 45;
+    stroke-dashoffset: 45;
+    animation: check_4 0.2s 2s ease-in-out forwards;
+  }
+
+  .falsecheck{
+opacity: 0;   
+animation: false 0.2s 2s ease-in-out forwards;
+transform: translate(10px,10px);
+  }
+
+
+/*
+*OTP
+*/
+
+.form.otp {
+  padding-inline: 30px;
+}
+
+.form.otp .error-message{
+  display: flex;
+  margin-inline: auto;
+  font-weight: 600;
+  width: 90%;
+}
+
+.form.otp .error-message.sent{
+ background-color: #c0e4f9;
+ color: #000000;
+
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+/*
+*FORGOT PASSWORD STYLES
+*/
+
+.forgot{
+  padding-inline: 20px;
+}
+
+
+.form.passchanged{
+  padding-inline: 40px;
+}
+
+.form.passchanged .error-message{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-inline: 0;
+  background-color: #d3efff;
+  color: #0a92e0;
+  font-weight: 700;
+}
+
+
+
+.wrap .newPass .error-message.done{
+  background-color: #d3efff;
+  color: #0a92e0;
+  font-weight: 700;
+
+}
+
+
+/*
+*Tweet
+*/
+.wrap.tweeting{
+ 
+ background-color: #000000;
+ padding-top: 0;
+  overflow: hidden;
+  color: white;
+  position: relative;
+  height: 400px;
+}
+
+.tweeting .add{
+  position: sticky;
+  width: 50px;
+  height: 50px;
+  top: 85%; 
+  left: 85%;
+  border-radius: 50%;
+  font-size: 25px;
+  background-color: rgb(59, 190, 242);
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+}
+
+
+
+.tweeting .add.active{
+  display: none;
+}
+
+.wrap.tweeting header{
+  background-color: white;
+  margin-inline: 0;
+  margin-top: 0;
+}
+
+
+.tweet,.following-tweet{
+  width: 100%;
+  overflow-y: scroll;
+padding-inline: 15px;
+padding-top: 20px;
+height: 100%;
+padding-bottom: 160px;
+position: absolute;
+}
+
+
+.tweet::-webkit-scrollbar{
+  width: 2px;
+}
+
+.following-tweet::-webkit-scrollbar{
+  width: 2px;
+}
+
+.wrap  img{
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+
+ .user{
+  display: flex;
+  border-bottom: 1px solid #727272;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: white;
+
+}
+.user:focus,.user:hover,.user:active{
+  color: white;
+}
+.user .user-tweet{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+.user img{
+  cursor: pointer;
+}
+
+ .user .user-tweet p{
+  word-break: break-all;
+  font-weight: 200;
+
+}
+
+ .user .user-tweet h3{
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+
+}
+
+
+.tweeting .write-tweet{
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+background-color: #141d26;
+transition: .4s;
+}
+
+.tweeting .write-tweet.active{
+  top: 7%;
+  transition: .4s;
+}
+
+.tweeting .write-tweet header{
+  background-color: #141d26;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px;
+border: none;
+margin-bottom: 10px;
+}
+
+.tweeting .write-tweet header button{
+ height: fit-content;
+ padding: 10px; 
+ background-color: rgb(4, 139, 193);
+ color: silver;
+ border-radius: 25px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border: none;
+ cursor: pointer;
+}
+
+.tweeting .write-tweet header .sendTweet.active{
+  color: white;
+  background-color: rgb(59, 190, 242);
+}
+
+
+.tweeting .write-tweet header .f1{
+  background-color: transparent;
+}
+
+
+.tweeting .write-tweet .add-tweet{
+  display: flex;
+padding-inline: 10px;
+height: 400px;
+}
+
+.tweeting .write-tweet .add-tweet textarea{
+  background-color: #141d26;
+  color: white;
+  font-size: 17px;
+height: 80%;
+overflow-y: scroll;
+width: 100%;
+border: none;
+resize: none;
+}
+
+.tweeting .write-tweet .add-tweet textarea:focus{
+  border: none;
+  outline: none;
+}
+
+.tweeting .write-tweet .add-tweet textarea::-webkit-scrollbar{
+  width: 5px;
+}
+
+
+.wrap.home .home-nav{
+  color: white;
+  background-color: #000000;
+  padding: 20px;
+}
+
+.wrap.home .home-nav h3{
+  cursor: pointer;
+  transition: .3s;
+}
+
+.wrap.home .home-nav .checked{
+  border-bottom: 3px solid #0a92e0;
+
+}
+
+
+.wrap.home .following-tweet{
+  background-color: #000000;
+
+}
+
+
+/*
+*TWITTER PAGES
+*/
+
+.wrap.twitter{
+  height: 600px;
+}
+
+/*
+*TWITTER SEARCH
+*/
+
+.content{
+  width: 100%;
+  position: absolute;
+  transition: .2s;
+  background-color: #000000;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  left: 0;
+  z-index: 0;
+}
+
+.wrap.twitter .twitter-search{
+  width: 100%;
+position: absolute;
+transition: .2s;
+background-color: #000000;
+height: 100%;
+overflow-x: hidden;
+overflow-y: hidden;
+left: 0;
+z-index: 0;
+}
+
+
+ .twitter-search::-webkit-scrollbar{
+  width: 5px;
+} 
+
+
+.searching{
+  width: 100%;
+}
+
+.twitter-search .field{
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  transition: .3s;
+  z-index: 1;
+
+}
+
+.twitter-search .field img{
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  transition: .3s;
+
+}
+
+
+.twitter-search .searches{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 20px;
+  font-size: 17px;
+  margin-top: 5px;
+}
+
+.twitter-search .searches i{
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: rgb(134, 133, 133);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
+ .twitter-search .field input{
+  width: 80%;
+  height: 35px;
+  border-radius: 20px;
+  padding-left: 10px;
+  background-color: #7a7a7a;
+border: none;
+font-size: 16px;
+color: rgb(223, 221, 221);
+padding-right: 10px;
+transition: .3s;
+}
+
+.twitter-search .cancelSearch{
+  display: none;
+  height: fit-content;
+  padding: 10px; 
+  background-color: transparent;
+  color: silver;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.field-search.active{
+  padding-left: 20px;
+}
+.field-search.active img{
+  display: none;
+}
+
+.field-search.active button{
+  display: flex;
+}
+
+.tfield-search.active input{
+  width: 90%;
+
+}
+
+
+.twitter-search .field input:focus{
+  border: none;
+  outline: none;
+}
+
+.twitter-search .field input::placeholder{
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(204, 199, 199);
+}
+
+
+.searched-acc{
+  display: flex;
+  align-items: center;
+padding-inline: 15px;
+margin-top: 10px;
+min-width: 100%;
+overflow-x: auto;
+position: relative;
+z-index: 0;
+}
+
+.searched-acc::-webkit-scrollbar{
+  width: 2px;
+}
+
+.searched-acc .acc{
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+  color: white;
+}
+
+
+
+.searched-acc .acc img{
+  width: 41px;
+  height: 41px;
+  margin-left: 10px;
+}
+
+.search-acc{
+  width: 100%;
+  height: 100%;
+  bottom: -100%;
+  background-color: #000000;
+  position: relative;
+  z-index: 12;
+  overflow-y: auto;
+  padding: 10px 20px;
+  padding-bottom: 140px;
+  display: flex;
+  flex-direction: column;
+  transition: .3s;
+}
+
+.search-acc .acc:focus,.search-acc .acc:hover,.search-acc .acc:any-link,.search-acc .acc:active{
+  color: white;
+}
+
+.search-acc.active{
+  bottom: 0;
+  transition: .3s;
+
+}
+
+.search-acc .acc{
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+    cursor: pointer;
+
+}
+
+.search-acc .acc img{
+  width: 35px;
+  height: 35px;
+}
+
+.search-acc::-webkit-scrollbar{
+  width: 5px;
+} 
+
+
+/*
+*TWITTER CHAT
+*/
+
+
+.chat{
+   position: absolute; 
+  width: 100%;
+  height: 100%;
+   z-index: 0; 
+   background-color: #000000;
+ display: flex; 
+  flex-direction: column;
+}
+
+.chat h4{
+  text-align: center;
+  margin-top: 5px;
+  border-bottom: 1px solid silver;
+  padding-bottom: 10px;
+}
+
+.chat .chat-users{
+  padding: 35px 15px;
+  overflow-y: scroll;
+  height: 77%;
+  width: 100%;
+}
+
+.chat-users::-webkit-scrollbar{
+  width: 2px;
+}
+
+.chat-users a{
+  display: flex;
+  background-color: #000000;
+  width: 100%;
+  overflow: hidden;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.chat-users .user-message{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.chat-users a h5{
+  color: rgb(235, 234, 234);
+}
+
+.chat-users a p{
+  color: silver;
+  width: 100%;
+  height: 100%;
+  overflow-wrap: break-word;
+  
+}
+
+
+.tweeting .createMessage{
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+background-color: #000000;
+transition: .4s;
+}
+
+.tweeting .createMessage.active{
+  top: 7%; 
+  transition: .4s;
+}
+
+.tweeting .createMessage header{
+  background-color: #000000;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px;
+border: none;
+border-bottom: 1px solid rgb(88, 88, 88);
+}
+
+.tweeting .createMessage header button{
+ height: fit-content;
+ padding: 10px; 
+ background-color: transparent;
+ color: silver;
+ border-radius: 25px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border: none;
+ cursor: pointer;
+
+}
+
+.tweeting .createMessage header h3{
+  margin-right: 40%;
+}
+
+
+.tweeting .createMessage .search-acc-chat{
+  padding-left: 20px;
+  border-bottom: 1px solid rgb(88, 88, 88);
+display: flex;
+height: 35px;
+align-items: center;
+}
+
+
+.tweeting .createMessage .search-acc-chat span{
+  color: rgb(218, 216, 216);
+  margin-right: 5px;
+font-size: 15px;
+}
+
+.tweeting .createMessage .search-acc-chat input{
+  width: 70%;
+height: 100%;
+border: none;
+outline: none;
+color: white;
+background-color: #000000;
+}
+
+
+.tweeting .createMessage .message-search-result{
+  width: 100%;
+  height: 76%;
+  overflow-y: scroll;
+  padding-left: 20px;
+  padding-top: 10px;
+  position: relative;
+}
+
+.message-search-result::-webkit-scrollbar{
+  width: 3px;
+}
+
+.message-search-result .acc,.message-search-result .acc:any-link{
+  cursor: pointer;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+margin-bottom: 15px;
+text-decoration: none;
+color: white;
+}
+
+.message-search-result .acc:focus,.message-search-result .acc:active{
+  text-decoration: none;
+color: white;
+}
+
+.message-search-result .loadingAna.chat{
+  position: absolute;
+  bottom:90%;
+  height: 10%;
+  width: 10%;
+  left: 45%;
+  margin-inline: auto;
+  background-color: transparent;
+display: none;
+z-index: 1;
+}
+
+
+.message-search-result .loadingAna.chat .spinner-blade{
+  width: 0.060em;
+  height: 0.263em;
+}
+
+
+
+/*
+*MESSAGE STYLING
+*/
+
+
+.messaging   .message-header-section{
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  padding-bottom: 10px;
+  position: sticky;
+  top: 0;
+transition: .4s;
+padding-inline: 15px;
+padding-top: 5px;
+backdrop-filter: blur(15px);
+border-bottom: 1px solid rgb(88, 88, 88);
+z-index: 1;
+}
+
+.messaging-section{
+  width: 100%;
+  height: 80%;
+  overflow-x: hidden;
+  position: relative;
+  overflow-y: scroll;
+ 
+}
+
+
+
+.messaging-section::-webkit-scrollbar{
+  width: 1px;
+}
+
+.message-header-section i{
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.messaging-section .message-header{
+  border-bottom: 1px solid rgb(88, 88, 88);
+margin-left: 35%;
+display: flex;
+flex-direction: column;
+align-items: center;
+} 
+
+.messaging-section .message-header img{
+  margin-bottom: 3px;
+  margin-left:10px;
+}
+
+.messaging-section .message-header h4{
+  color: #dadada;
+}
+
+.messaging .messaging-section .messaging-field{
+  box-shadow: inset 0 32px 32px -32px rgb(0 0 0 / 5%),inset 0 -32px 32px -32px rgb(0 0 0 / 5%);
+  overflow: hidden;
+  position: absolute;
+  z-index: 0;
+  padding-inline: 10px;
+  width: 100%;
+}
+
+
+
+
+
+.messaging-field .message{
+  margin: 15px 0;
+}
+
+.messaging-field .sending{
+  display: flex;
+
+}
+
+.messaging-field .message p{
+  word-wrap: break-word;
+  padding: 8px 16px;
+  box-shadow:  0 0 32px rgb(0 0 0 / 8%), 0 16px 16px -16px rgb(0 0 0 / 10%);
+
+}
+
+.sending .details{
+   margin-left: auto;
+   max-width: calc(100% - 130px);
+}
+
+.sending .details p{
+background: #0a92e0;
+color: white;
+border-radius: 18px 18px 0 18px;
+
+}
+.messaging-field .coming{
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.coming .details{
+  margin-left: 10px;
+  margin-right: auto;
+  max-width: calc(100% - 130px);
+}
+
+.coming .details p{
+  background: rgb(99, 99, 99);
+color: white;
+border-radius: 18px 18px 18px 0;
+}
+
+
+
+.sending-message{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 15%;
+  border-top: 1px solid white;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.sending-message input{
+width: calc(100% - 80px);
+height: 50%;
+border-radius: 15px;
+margin-right: 10px;
+border: none;
+outline: none;
+padding-left: 10px;
+}
+.sending-message button{
+  width: 50px;
+  height: 50%;
+  border-radius: 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+font-size: 17px;
+border: none;
+}
+
+
+/* 
+*PROFILE SECTION
+*/
+
+
+.profile{
+  width: 100%;
+  position: absolute;
+   left: 0; 
+  transition: .2s;
+  background-color: #000000;
+  height: 100%;
+  overflow-x: hidden;
+ /*  overflow-y: hidden; */
+display: flex;
+flex-direction: column;
+}
+
+.profile .profile-header h5{
+  margin-left: 10px;
+  color: rgb(232, 226, 226);
+}
+
+
+.profile .goBack{
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.profile .profile-field{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  position: relative;
+}
+.profile .profile-field img{
+  border: 1px solid silver;
+width: 50px;
+height: 50px;
+}
+
+.profile .profile-field button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: black;
+  border: 1px solid rgb(85, 85, 85);
+  width: 95px;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.profile .profile-btn .logoutBtn{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  color: red;
+  font-size: 17px;
+  border-radius: 50%;
+  background-color: white;
+  top:9px;
+  right: 130px;
+}
+
+.profile .profile-field .follow-button{
+  background-color: white;
+  color: black;
+  font-weight: 700;
+transition: .3s;
+}
+
+.profile .profile-field .own-profile-btn{
+font-size: 12px;
+
+}
+
+
+.profile h6{
+  margin-top: 15px;
+  margin-left: 10px;
+  font-size: 13px;
+  color: silver;
+}
+
+.profile .profile-follow{
+  display: flex;
+  align-items: center;
+  height: fit-content;
+}
+
+.profile .profile-follow h6{
+  margin-right: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.profile .profile-follow span{
+  color: white; 
+  margin-right: 5px;
+}
+
+.profile .header-field{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.profile .header-field h4{
+  cursor: pointer;
+  
+}
+.profile .header-field .clicked{
+  border-bottom: 4px solid #0a92e0;
+
+}
+
+.profile-header{
+  border-bottom: 1px solid rgb(51, 51, 51);
+}
+
+
+.profile .profile-header p{
+  margin-left: 10px;
+  margin-top: 4px;
+  font-size: 14px;
+  max-width: 90%;
+  overflow-wrap: break-word;
+  height: fit-content;
+}
+
+
+
+.profile .profile-tweets{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+
+.profile .tweet{
+  height: 100%;
+  padding-bottom: 91px;
+  z-index:1;
+  background-color: #000000;
+  position: absolute;
+  box-shadow: inset 2px 2px 5px 5px #000000;
+  transition: .2s;
+
+}
+
+ .user h5{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 60%;
+  margin-top: 10px;
+  color: #bbc2cc;
+cursor: pointer;
+}
+
+
+  .user i{
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: .3s;
+ 
+}
+
+.fa-heart{
+  color: rgb(255, 103, 129);
+}
+
+.profile .liked-tweet{
+  height: 100%;
+  padding-bottom: 91px;
+  position: absolute;
+  box-shadow: inset 2px 2px 5px 5px #000000;
+  z-index: 1;
+  display: none;
+  background-color: #000000;
+  padding-top: 15px;
+  overflow-y: auto;
+  transition: .2s;
+  padding-inline: 20px;
+  width: 100%;
+}
+
+.liked-tweet::-webkit-scrollbar{
+  width: 5px;
+} 
+
+.wrap.twitter.profileSection .edit-bio{
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%; 
+   top: 100%;
+   background-color: #000000;
+  transition: .4s;
+  backdrop-filter: blur(5px);
+  }
+  
+
+.wrap.twitter.profileSection .edit-bio.active{
+  top: 7%;
+  transition: .4s;
+}
+
+.tweeting .edit-bio header{
+  background-color: #1d1d1d;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px;
+border: none;
+border-bottom: 1px solid #69717d;
+position: relative;
+z-index: 2;
+}
+
+.tweeting .edit-bio header button{
+ height: fit-content;
+ padding: 10px; 
+ background-color: transparent;
+ color: silver;
+ border-radius: 25px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border: none;
+ cursor: pointer;
+}
+
+
+.tweeting .edit-bio header .save-bio{
+  color: #0a92e0;
+}
+
+
+.tweeting .edit-bio .add-bio{
+  display: flex;
+  padding-left: 10px;
+box-shadow: inset 0px 2px 1px rgb(128, 127, 127);
+padding-top: 20px;
+outline: none;
+align-items: center;
+}
+
+.tweeting .edit-bio .add-bio input{
+  height: 40px;
+  width: 80%;
+padding-left: 4px;
+padding-right: 10px;
+background-color: transparent;
+border: none;
+outline: none;
+color: white;
+border-bottom: 1px solid #1d1d1d;
+}
+.tweeting .edit-bio .add-bio h4{
+  margin-right: 7px;
+  font-size: 12px;
+}
+
+
+.loadingAna.addProfBio{
+  transform: translateY(-50px);
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+.loadingAna.addProfBio .spinner-blade{
+  width: 0.040em;
+  height: 0.233em;
+}
+
+
+.tweeting .write-tweet .add-tweet textarea::-webkit-scrollbar{
+  width: 5px;
+}
+
+
+
+/*
+*TWIITER FOOTER
+*/
+
+.wrap.twitter footer{
+width: 100%;
+position: sticky;
+top: 95%;
+height: 50px;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+border-top:.2px solid rgb(131, 131, 131);
+z-index: 3;
+background-color: #000000;
+}
+
+
+.wrap.twitter footer i{
+  font-size: 20px;
+  cursor: pointer;
+  transition: .6s;
+  border: none;
+}
+
+.wrap.twitter footer i:nth-child(4){
+  transform: translateY(10px);
+}
+
+
+
+.wrap.twitter footer span{
+  background-color: #0a92e0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  position: absolute;
+  z-index: -1;
+/*   transform: translateX(-139px);
+ */  transition: .3s;
+}
+
+.chating footer span{
+  transform: translateX(141px);
+}
+
+
+
+.profileSection footer span{
+  transform: translateX(48px);
+}
+
+.profileSection .notown{
+  transform: translateX(-139px);
+}
+
+
+.main.twitter footer span{
+  transform: translateX(-139px);
+}
+
+.twitter.search span{
+  transform: translateX(-44px);
+}
+
+
+
+.wrap .loadingAna{
+  background-color: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+
+.wrap .loadingAna.login{
+  display: none;
+}
+
+.wrap .loadingAna.signup{
+  display: none;
+}
+
+.wrap .loadingAna.otp{
+  display: none;
+}
+
+.wrap .loadingAna.newp{
+  display: none;
+}
+.wrap .loadingAna.forgot{
+  display: none;
+}
+
+.wrap .loadingAna.gettingProfileTweets,.wrap .loadingAna.gettingProfileLikedTweets,.wrap .loadingAna.search{
+  display: none;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  left: 45%;
+}
+
+.spinner {
+  font-size: 28px;
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+.spinner.center {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.spinner .spinner-blade {
+  position: absolute;
+  left: 0.4629em;
+  bottom: 0;
+  width: 0.074em;
+  height: 0.2777em;
+  border-radius: 0.0555em;
+  background-color: transparent;
+  -webkit-transform-origin: center -0.2222em;
+  -ms-transform-origin: center -0.2222em;
+  transform-origin: center -0.2222em;
+  animation: spinner-fade9234 1s infinite linear;
+}
+
+  .spinner .spinner-blade:nth-child(1) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+.spinner .spinner-blade:nth-child(2) {
+  -webkit-animation-delay: 0.083s;
+  animation-delay: 0.083s;
+  -webkit-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+.spinner .spinner-blade:nth-child(3) {
+  -webkit-animation-delay: 0.166s;
+  animation-delay: 0.166s;
+  -webkit-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+
+.spinner .spinner-blade:nth-child(4) {
+  -webkit-animation-delay: 0.249s;
+  animation-delay: 0.249s;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.spinner .spinner-blade:nth-child(5) {
+  -webkit-animation-delay: 0.332s;
+  animation-delay: 0.332s;
+  -webkit-transform: rotate(120deg);
+  -ms-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+
+.spinner .spinner-blade:nth-child(6) {
+  -webkit-animation-delay: 0.415s;
+  animation-delay: 0.415s;
+  -webkit-transform: rotate(150deg);
+  -ms-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+
+.spinner .spinner-blade:nth-child(7) {
+  -webkit-animation-delay: 0.498s;
+  animation-delay: 0.498s;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.spinner .spinner-blade:nth-child(8) {
+  -webkit-animation-delay: 0.581s;
+  animation-delay: 0.581s;
+  -webkit-transform: rotate(210deg);
+  -ms-transform: rotate(210deg);
+  transform: rotate(210deg);
+}
+
+.spinner .spinner-blade:nth-child(9) {
+  -webkit-animation-delay: 0.664s;
+  animation-delay: 0.664s;
+  -webkit-transform: rotate(240deg);
+  -ms-transform: rotate(240deg);
+  transform: rotate(240deg);
+}
+
+.spinner .spinner-blade:nth-child(10) {
+  -webkit-animation-delay: 0.747s;
+  animation-delay: 0.747s;
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.spinner .spinner-blade:nth-child(11) {
+  -webkit-animation-delay: 0.83s;
+  animation-delay: 0.83s;
+  -webkit-transform: rotate(300deg);
+  -ms-transform: rotate(300deg);
+  transform: rotate(300deg);
+}
+
+.spinner .spinner-blade:nth-child(12) {
+  -webkit-animation-delay: 0.913s;
+  animation-delay: 0.913s;
+  -webkit-transform: rotate(330deg);
+  -ms-transform: rotate(330deg);
+  transform: rotate(330deg);
+}
+ 
+@keyframes spinner-fade9234 {
+  0% {
+    background-color: #69717d;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+} 
