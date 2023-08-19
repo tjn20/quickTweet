@@ -952,6 +952,8 @@ transition: .4s;
 padding-inline: 15px;
 padding-top: 5px;
 backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(5px);
+
 border-bottom: 1px solid rgb(88, 88, 88);
 z-index: 1;
 }
@@ -1459,6 +1461,8 @@ background-color: #000000;
   height: 100%;
   z-index: 10;
   backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+
 }
 
 
