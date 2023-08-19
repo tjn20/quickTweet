@@ -25,7 +25,7 @@ ini_set('display_errors', 0);
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="wrap tweeting twitter profileSection">
+    <div class="wrap tweeting twitter profileSection page">
     <?php 
    
               
