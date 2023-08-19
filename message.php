@@ -26,7 +26,7 @@ ini_set('display_errors', 0);
 
 </head>
 <body>
-    <div class="wrap tweeting twitter messaging">
+    <div class="wrap tweeting twitter messaging page">
         <header>
             <img src="images/logo.png" alt="">
         </header>
