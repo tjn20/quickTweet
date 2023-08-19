@@ -1625,3 +1625,35 @@ background-color: #000000;
     background-color: transparent;
   }
 } 
+
+
+@media screen and (max-width:429px){
+    .wrap.page{
+  height: 100%;
+  width: 100vw;
+}
+.wrap.twitter{
+    border-radius: 0;
+}
+body{
+    min-height: 0;
+    height: 90vh;
+    overflow: hidden;
+}
+.wrap.twitter footer{
+    top: 95%;
+    height: 55px;
+}
+
+.main.twitter footer span{
+  transform: translateX(-132px);
+}
+
+.chating footer span{
+  transform: translateX(132px);
+}
+
+
+}
+
+
