@@ -23,7 +23,7 @@ include_once "php/database.php";
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <div class="wrap tweeting twitter search">
+    <div class="wrap tweeting twitter search page">
     <header>
             <img src="images/logo.png" alt="">
         </header>
