@@ -20,7 +20,7 @@ if(!isset($_SESSION['unique_id'])){
 
 </head>
 <body>
-    <div class="wrap tweeting twitter chating">
+    <div class="wrap tweeting twitter chatting page">
         <header>
             <img src="images/logo.png" alt="">
         </header>
